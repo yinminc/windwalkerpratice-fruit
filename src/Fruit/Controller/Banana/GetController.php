@@ -32,7 +32,8 @@ class GetController extends AbstractController
         return $this->renderView($view, $layout, 'edge', [
             'location' => 'Taiwan',
             'color' => 'warning',
-            'foo' => $foo
+            'foo' => $foo,
+            'id' => $this->input->get('id')
         ]);
 
     }

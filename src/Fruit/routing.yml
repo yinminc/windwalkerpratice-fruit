@@ -1,6 +1,6 @@
 home:
     pattern: /
-    controller: banana
+    controller: Banana
 banana:
-    pattern: /banana
-    controller: banana
+    pattern: /banana(/id)
+    controller: Banana
