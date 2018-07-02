@@ -31,6 +31,7 @@ class GetController extends AbstractController
 
         $view = $this->getView('Banana', 'html');
         $view['location'] = 'Japan';
+        $view->setLayout($layout);
         $view->set('color', 'warning');
         $view->set('foo', $foo);
         $view->set('id', $this->input->get('id'));
