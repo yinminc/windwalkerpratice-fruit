@@ -1,0 +1,6 @@
+home:
+    pattern: /
+    controller: banana
+banana:
+    pattern: /banana
+    controller: banana

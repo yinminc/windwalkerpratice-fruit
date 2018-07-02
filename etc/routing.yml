@@ -1,0 +1,6 @@
+main:
+    pattern: /
+    package: main
+fruit:
+    pattern: /fruit
+    package: fruit
