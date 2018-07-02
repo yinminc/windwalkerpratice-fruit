@@ -29,12 +29,14 @@ class GetController extends AbstractController
         $layout = $this->input->get('layout', 'default');
         $foo = $this->input->get('foo', 'bar');
 
-        return $this->renderView($view, $layout, 'edge', [
-            'location' => 'Taiwan',
-            'color' => 'warning',
-            'foo' => $foo,
-            'id' => $this->input->get('id')
-        ]);
+        $view = $this->getView('Banana', 'html');
+        $view['location'] = 'Japan';
+        $view->set('color', 'warning');
+        $view->set('foo', $foo);
+        $view->set('id', $this->input->get('id'));
+        $view->set('date', '2018-07-02 00:00:00');
+
+        return $view->render();
 
     }
 }

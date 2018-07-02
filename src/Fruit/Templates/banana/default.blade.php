@@ -11,7 +11,7 @@
                     Foo = {{ $foo }}
                 </h1>
                 <br />
-                ID: {{ $id }}
+                ID: {{ $id }} Date: {{ $date }}
             </div>
         </div>
     </div>
