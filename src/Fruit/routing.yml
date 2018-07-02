@@ -4,3 +4,5 @@ home:
 banana:
     pattern: /banana(/id)
     controller: Banana
+    action:
+        put: PutController
