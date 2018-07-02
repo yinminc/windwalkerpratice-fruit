@@ -4,4 +4,4 @@ home:
 banana:
     pattern: /banana(/id)
     controller: Banana
-    
+

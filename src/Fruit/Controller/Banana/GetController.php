@@ -26,10 +26,11 @@ class GetController extends AbstractController
     protected function doExecute()
     {
         $view = $this->input->get('view', 'banana');
+        $format = $this->input->get('format', 'html');
         $layout = $this->input->get('layout', 'default');
         $foo = $this->input->get('foo', 'bar');
 
-        $view = $this->getView('Banana', 'html');
+        $view = $this->getView('Banana', $format);
         $view['location'] = 'Japan';
         $view->setLayout($layout);
         $view->set('color', 'warning');
