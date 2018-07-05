@@ -21,7 +21,11 @@ class BananaInit extends AbstractMigration
      */
     public function up()
     {
-
+        $this->createTable('bananas', function (Schema $schema){
+            $schema->primary('id');
+            $schema->varchar('title');
+            $schema->text('desc');
+        });
     }
 
     /**
@@ -29,6 +33,6 @@ class BananaInit extends AbstractMigration
      */
     public function down()
     {
-
+        $this->drop('bananas');
     }
 }
