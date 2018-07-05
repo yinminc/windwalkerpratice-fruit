@@ -29,8 +29,10 @@ class GetController extends AbstractController
         $mapper = new DataMapper('bananas');
 
         $banana = $mapper->findAll();
-        $banana = $mapper->select('COUNT(id) AS count')
-            ->findOne()->count;
+
+        foreach ($banana as $banana) {
+            echo $banana->id . ' : ' . $banana->title . '<br />';
+        }
         
         show($banana);
         
