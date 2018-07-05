@@ -27,12 +27,10 @@ class GetController extends AbstractController
     protected function doExecute()
     {
         $mapper = new DataMapper('bananas');
-        
-        $mapper->createOne([
-           'title' => 'Hello',
-           'desc' => 'this is a banana' 
-        ]);
 
+        $bananas = $mapper->findAll();
+        
+        show($bananas);
         
         $view = $this->input->get('view', 'banana');
         $format = $this->input->get('format', 'html');
