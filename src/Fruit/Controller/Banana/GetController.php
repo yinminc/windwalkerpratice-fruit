@@ -26,15 +26,25 @@ class GetController extends AbstractController
      */
     protected function doExecute()
     {
-        $mapper = new DataMapper('bananas');
+        $db = $this->app->database;
 
-        $banana = $mapper->findAll();
+        $query = $db->getQuery(true);
 
-        foreach ($banana as $banana) {
-            echo $banana->id . ' : ' . $banana->title . '<br />';
-        }
-        
-        show($banana);
+        $id = 1;
+
+        echo $query->select('*')
+            ->from('bananas')
+            ->where('%n = %q', 'id', $id)
+                ->orWhere([
+                    'id > 1',
+                    'id < 3'
+                ])
+            ->order('id DESC')
+            ->limit(2,0);
+
+        $bananas = $db->setQuery($query)->loadAll();
+
+        show($bananas);
         
         $view = $this->input->get('view', 'banana');
         $format = $this->input->get('format', 'html');
