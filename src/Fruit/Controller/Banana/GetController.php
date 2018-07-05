@@ -28,9 +28,9 @@ class GetController extends AbstractController
     {
         $mapper = new DataMapper('bananas');
 
-        $bananas = $mapper->findAll();
+        $banana = $mapper->findOne(['id' => 2]);
         
-        show($bananas);
+        show($banana);
         
         $view = $this->input->get('view', 'banana');
         $format = $this->input->get('format', 'html');
