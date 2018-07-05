@@ -9,6 +9,7 @@
 namespace Fruit\Controller\Banana;
 
 use Windwalker\Core\Controller\AbstractController;
+use Windwalker\DataMapper\DataMapper;
 
 /**
  * The GetController class.
@@ -25,6 +26,14 @@ class GetController extends AbstractController
      */
     protected function doExecute()
     {
+        $mapper = new DataMapper('bananas');
+        
+        $mapper->createOne([
+           'title' => 'Hello',
+           'desc' => 'this is a banana' 
+        ]);
+
+        
         $view = $this->input->get('view', 'banana');
         $format = $this->input->get('format', 'html');
         $layout = $this->input->get('layout', 'default');
