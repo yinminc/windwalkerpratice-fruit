@@ -29,7 +29,7 @@ class LocationInit extends AbstractMigration
         });
 
         // add location_id to banana
-        $this->updateTable('sakuras', function (Schema $schema){
+        $this->updateTable('bananas', function (Schema $schema){
             $schema->integer('location_id')->position('AFTER id');
         });
     }
