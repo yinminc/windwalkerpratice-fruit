@@ -26,12 +26,17 @@ class GetController extends AbstractController
      */
     protected function doExecute()
     {
+        $id = $this->input->get('id');
 
-        $view = $this->getView('Banana');
+        $view = $this->getView('banana');
 
-        $view->setLayout('form');
+        $bananaMapper = new DataMapper('bananas');
 
-        return $view->render();
+        $bananas = $bananaMapper->findOne($id);
+
+        $view['bananas'] = $bananas;
+
+        return $view->setLayout('form')->render();
 
     }
 }
