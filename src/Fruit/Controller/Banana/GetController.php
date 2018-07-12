@@ -26,38 +26,10 @@ class GetController extends AbstractController
      */
     protected function doExecute()
     {
-        $db = $this->app->database;
 
-        $query = $db->getQuery(true);
+        $view = $this->getView('Banana');
 
-        $id = 1;
-
-        echo $query->select('*')
-            ->from('bananas')
-            ->where('%n = %q', 'id', $id)
-                ->orWhere([
-                    'id > 1',
-                    'id < 3'
-                ])
-            ->order('id DESC')
-            ->limit(2,0);
-
-        $bananas = $db->setQuery($query)->loadAll();
-
-        show($bananas);
-        
-        $view = $this->input->get('view', 'banana');
-        $format = $this->input->get('format', 'html');
-        $layout = $this->input->get('layout', 'default');
-        $foo = $this->input->get('foo', 'bar');
-
-        $view = $this->getView('Banana', $format);
-        $view['location'] = 'Japan';
-        $view->setLayout($layout);
-        $view->set('color', 'warning');
-        $view->set('foo', $foo);
-        $view->set('id', $this->input->get('id'));
-        $view->set('date', '2018-07-02 00:00:00');
+        $view->setLayout('form');
 
         return $view->render();
 
